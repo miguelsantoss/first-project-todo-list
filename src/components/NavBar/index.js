@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class NavBar extends React.Component {
   render() {
@@ -17,7 +18,7 @@ export default class NavBar extends React.Component {
 
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav navbar-right">
-              <li><a href="#">Log out</a></li>
+              <li><Link to={'/'}>Log out</Link></li>
             </ul>
           </div>
         </div>
