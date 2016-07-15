@@ -3,25 +3,29 @@ import React from 'react';
 import TodoListEntry from './TodoListEntry';
 
 export default class TodoList extends React.Component {
-	render() {
-		const { todos } = this.props;
+  render() {
+    const { todos } = this.props;
 
-		const listEntries = todos.map((todo) => {
-	        return <TodoListEntry key={todo.id} {...todo}/>;
-	    });
+    const listEntries = todos.map((todo) => {
+          return <TodoListEntry key={todo.id} {...todo}/>;
+    });
 
-		return (
-			<div id="page-content-wrapper">
-				<div className="container-fluid">
-					<div className="row">
-						<div className="col-lg-6">
-							<ul className="list-group">
-								{listEntries}
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	}
+    return (
+      <div className="container">
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <div className="input-group">
+              <input type="text" className="form-control"/>
+              <span className="input-group-btn">
+                <button className="btn btn-primary" type="button"><span className="glyphicon glyphicon-plus"/></button>
+              </span>
+            </div>
+          </div>
+          <ul className="list-group">
+            {listEntries}
+          </ul>
+        </div>
+      </div>
+    );
+  }
 }

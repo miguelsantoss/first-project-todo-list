@@ -1,46 +1,36 @@
 import React from 'react';
 
-import SideBar from '../components/Sidebar';
+import NavBar from '../components/NavBar';
 import TodoList from '../components/TodoList';
 
 const todos = [
-	{
-		todoText:'Cook Dinner',
-		id: 0,
-		priority: 'HIGH',
-	},
-	{
-		todoText:'Watch a Movie',
-		id: 1,
-		priority: 'MEDIUM',
-	},
-	{
-		todoText:'Wash dishes',
-		id: 2,
-		priority: 'LOW',
-	},
-];
-
-const options = [
-	{
-		listName:'Not completed',
-		id: 0,
-	},
-	{
-		listName:'Important',
-		id: 1,
-	},
+  {
+    todoText: 'Cook Dinner',
+    id: 0,
+    priority: 'HIGH',
+    done: false
+  },
+  {
+    todoText: 'Watch a Movie',
+    id: 1,
+    priority: 'MEDIUM',
+    done: true
+  },
+  {
+    todoText: 'Wash Dishes',
+    id: 2,
+    priority: 'LOW',
+    done: false
+  },
 ];
 
 export default class UserHomePage extends React.Component {
-	render() {
-		return (
-			<div>
-				<div id="wrapper">
-					<SideBar sidebarList={options}/>
-					<TodoList todos={todos}/>
-				</div>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <NavBar/>
+        <TodoList todos={todos}/>
+      </div>
+    );
+  }
 }
