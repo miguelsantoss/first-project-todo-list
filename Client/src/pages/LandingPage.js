@@ -3,10 +3,10 @@ import { Link, browserHistory } from 'react-router'
 
 export default class LandingPage extends React.Component {
   handleLogInclick() {
-    browserHistory.push('/home'); //FIXME add login/register logic
+    browserHistory.push('/home'); //FIXME add login logic
   }
   handleRegisterclick() {
-    browserHistory.push('/register'); //FIXME change to /register or something
+    browserHistory.push('/register'); //FIXME register logic
   }
 
   render() {
