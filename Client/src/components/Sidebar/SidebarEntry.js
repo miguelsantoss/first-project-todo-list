@@ -1,16 +1,13 @@
 import React from 'react';
 
 export default class SidebarEntry extends React.Component {
+  render() {
+    const { listName } = this.props;
 
-	render() {
-		const { listName } = this.props;
-
-		return (
-			<div>
-				<li>
-					<a href="#">{listName}</a>
-				</li>
-			</div>
-		);
-	}
+    return (
+      <li>
+        <a href="#">{listName}</a>
+      </li>
+    );
+  }
 }

@@ -16,9 +16,15 @@ export default class TodoList extends React.Component {
           <div className="panel-heading">
             <div className="input-group">
               <input type="text" className="form-control"/>
-              <span className="input-group-btn">
+              <div className="input-group-btn">
+                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="btn btn-success dropdown-toggle">LOW <span className="caret"></span></button>
+                <ul className="dropdown-menu">
+                  <li><a href="#"><span className="text-success">LOW</span></a></li>
+                  <li><a href="#"><span className="text-warning">MEDIUM</span></a></li>
+                  <li><a href="#"><span className="text-danger">HIGH</span></a></li>
+                </ul>
                 <button className="btn btn-primary" type="button"><span className="glyphicon glyphicon-plus"/></button>
-              </span>
+              </div>
             </div>
           </div>
           <ul className="list-group">
