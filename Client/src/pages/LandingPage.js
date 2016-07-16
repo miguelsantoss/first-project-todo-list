@@ -6,7 +6,7 @@ export default class LandingPage extends React.Component {
     browserHistory.push('/home'); //FIXME add login/register logic
   }
   handleRegisterclick() {
-    browserHistory.push('/home'); //FIXME change to /register or something
+    browserHistory.push('/register'); //FIXME change to /register or something
   }
 
   render() {
