@@ -11,7 +11,7 @@ export default class TodoList extends React.Component {
     });
 
     return (
-      <div className="container">
+      <div>
         <div className="panel panel-default">
           <div className="panel-heading">
             <div className="input-group">

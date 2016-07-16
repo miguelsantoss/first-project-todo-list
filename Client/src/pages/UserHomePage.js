@@ -1,6 +1,7 @@
 import React from 'react';
 
 import NavBar from '../components/NavBar';
+import Sidebar from '../components/Sidebar';
 import TodoList from '../components/TodoList';
 
 const todos = [
@@ -24,12 +25,26 @@ const todos = [
   },
 ];
 
+const sidebarList = [
+  {
+    listName: 'Completed',
+    id: 0
+  },
+  {
+    listName: 'Custom list',
+    id: 1
+  }
+]
+
 export default class UserHomePage extends React.Component {
   render() {
     return (
       <div>
         <NavBar/>
-        <TodoList todos={todos}/>
+        <div id="wrapper">
+          <Sidebar sidebarList={sidebarList}/>
+          <TodoList todos={todos}/>
+        </div>
       </div>
     );
   }
