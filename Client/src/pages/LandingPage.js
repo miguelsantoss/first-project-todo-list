@@ -28,7 +28,7 @@ export default class LandingPage extends React.Component {
               </div>
               <div class="btn-group" role="group">
                 <button type="button" onClick={this.handleLogInclick.bind(this)} className="btn btn-primary">Log in</button>
-                <button type="button" onClick={this.handleRegisterclick.bind(this)} className="btn btn-default">Register</button>
+                <button type="button" onClick={this.handleRegisterclick.bind(this)} className="btn btn-success">Register</button>
               </div>
             </form>
           </div>
