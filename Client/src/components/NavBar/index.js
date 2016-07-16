@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 export default class NavBar extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-inverse navbar-static-top">
+      <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
             <a className="navbar-brand" href="#">Todo App by Team Red Iguanas</a>
