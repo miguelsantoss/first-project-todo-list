@@ -42,7 +42,7 @@ $container['db'] = function ($c) {
  */
 $app->get('/user/all', function (Request $request, Response $response) {
 	$this->logger->addInfo("User list");
-	$mapper = new ListMapper($this->db);
+	$mapper = new UserMapper($this->db);
 	$user = $mapper->getUsers();
 
 	$response->getBody()->write(var_export($user, true));
@@ -63,7 +63,7 @@ $app->get('/lists', function (Request $request, Response $response) {
  */
 $app->get('/user/{id}', function (Request $request, Response $response, $args) {
 	$user_id = (int)$args['id'];
-	$mapper = new ListMapper($this->db);
+	$mapper = new UserMapper($this->db);
 	$user = $mapper->getUserById($user_id);
 
 	$response->getBody()->write(var_export($user, true));
@@ -77,8 +77,8 @@ $app->post('/user/new', function (Request $request, Response $response) {
 	$data = $request->getParsedBody();
 	$user_data = [];
 	$user_data['name'] = filter_var($data['name'], FILTER_SANITIZE_STRING);
-	$user = new ItemEntity($user_data);
-	$user_mapper = new ListMapper($this->db);
+	$user = new UserEntity($user_data);
+	$user_mapper = new UserMapper($this->db);
 	$user_mapper->save($user);
 	$response = $response->withRedirect("/users");
 	return $response;
