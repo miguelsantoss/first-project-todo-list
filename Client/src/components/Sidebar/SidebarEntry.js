@@ -2,11 +2,11 @@ import React from 'react';
 
 export default class SidebarEntry extends React.Component {
   render() {
-    const { listName } = this.props;
+    const { name } = this.props;
 
     return (
       <li>
-        <a href="#">{listName}</a>
+        <a href="#">{name}</a>
       </li>
     );
   }

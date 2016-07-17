@@ -6,19 +6,19 @@ import TodoList from '../components/TodoList';
 
 const todos = [
   {
-    todoText: 'Cook Dinner',
+    name: 'Cook Dinner',
     id: 0,
     priority: 'HIGH',
     done: false
   },
   {
-    todoText: 'Watch a Movie',
+    name: 'Watch a Movie',
     id: 1,
     priority: 'MEDIUM',
     done: true
   },
   {
-    todoText: 'Wash Dishes',
+    name: 'Wash Dishes',
     id: 2,
     priority: 'LOW',
     done: false
@@ -27,11 +27,11 @@ const todos = [
 
 const sidebarList = [
   {
-    listName: 'Completed',
+    name: 'Groceries',
     id: 0
   },
   {
-    listName: 'Custom list',
+    name: 'Games I Want',
     id: 1
   }
 ]
