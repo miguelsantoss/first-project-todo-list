@@ -29,7 +29,7 @@ $container['db'] = function ($c) {
 		$pdo = new PDO("mysql:host=" . $db['host'] . ";dbname=" . $db['dbname'],
 			$db['user'], $db['pass']);
 	} catch (PDOException $Exception) {
-		echo 'Exception abgefangen: ',  $Exception->getMessage(), "\n";
+		echo 'Caught Exception: ',  $Exception->getMessage(), "\n";
 	}
 
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
