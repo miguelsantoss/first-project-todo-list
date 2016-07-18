@@ -1,20 +1,10 @@
 import { combineReducers } from 'redux';
 
-const userReducer = (state, actions) => {
-
-};
-
-const todosReducer = (state, actions) => {
-
-};
-
-const listsReducer = (state, actions) => {
-
-};
+import userReducer from './userReducer';
+import listsReducer from './listsReducer';
 
 const reducers = combineReducers({
 	user: userReducer,
-	todos: todosReducer,
 	lists: listsReducer,
 });
 
