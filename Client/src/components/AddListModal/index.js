@@ -3,7 +3,7 @@ import React from 'react';
 export default class addListModal extends React.Component {
   render() {
     return (
-      <div className="modal fade" id="addListModal" tabindex="-1" role="dialog" aria-labelledby="addListModalLabel">
+      <div className="modal fade" id="addListModal" tabIndex="-1" role="dialog" aria-labelledby="addListModalLabel">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
