@@ -2,9 +2,11 @@ import React from 'react';
 
 export default class addListModal extends React.Component {
   handleListCreation() {
-    const inputV = document.getElementById("listName");
-    this.props.createListHandler(inputV.value);
-    inputV.value = "";
+    const input = document.getElementById("listName");
+    if(input.value != "") {
+      this.props.createListHandler(input.value);
+      input.value = "";
+    }
   }
   
   render() {

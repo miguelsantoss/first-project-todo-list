@@ -5,8 +5,10 @@ import TodoListEntry from './TodoListEntry';
 export default class TodoList extends React.Component {
   handleTodoCreation() {
     const input = document.getElementById("search-creation-box");
-    this.props.createTodoHandler(input.value);
-    input.value = "";
+    if(input.value != ""){
+      this.props.createTodoHandler(input.value);
+      input.value = "";
+    }
   }
   
   render() {
