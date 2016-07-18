@@ -12,29 +12,29 @@ export function createList(name) {
 	}
 }
 
-export function deleteList(name, id=null/*FIXME*/) {
+export function deleteList(name) {
 	return {
 		type: "DELETE_LIST",
 		payload: name
 	}
 }
 
-export function createTodo(listName, name, priority) {
+export function createTodo(listId, name, priority) {
 	return {
 		type: "CREATE_TODO",
 		payload: {
-			listName,
+			listId,
 			name,
 			priority,
 		}
 	}
 }
 
-export function deleteTodo(listName, name) {
+export function deleteTodo(listId, name) {
 	return {
 		type: "DELETE_TODO",
 		payload: {
-			listName,
+			listId,
 			name,
 		}
 	}

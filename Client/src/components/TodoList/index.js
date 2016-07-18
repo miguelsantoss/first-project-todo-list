@@ -3,6 +3,12 @@ import React from 'react';
 import TodoListEntry from './TodoListEntry';
 
 export default class TodoList extends React.Component {
+  handleTodoCreation() {
+    const input = document.getElementById("search-creation-box");
+    this.props.createTodoHandler(input.value);
+    input.value = "";
+  }
+  
   render() {
     const { todos } = this.props;
 
@@ -26,7 +32,7 @@ export default class TodoList extends React.Component {
                   <li><a href="#">HIGH</a></li>
                 </ul>
               </div>
-              <input type="text" className="form-control" placeholder="Search or create an item..."/>
+              <input type="text" id="search-creation-box" className="form-control" placeholder="Search or create an item..."/>
               <div className="input-group-btn">
                 <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="btn btn-success dropdown-toggle">LOW <span className="caret"></span></button>
                 <ul className="dropdown-menu">
@@ -34,7 +40,7 @@ export default class TodoList extends React.Component {
                   <li><a href="#"><span className="text-warning">MEDIUM</span></a></li>
                   <li><a href="#"><span className="text-danger">HIGH</span></a></li>
                 </ul>
-                <button className="btn btn-primary" type="button"><span className="glyphicon glyphicon-plus"/></button>
+                <button onClick={this.handleTodoCreation.bind(this)} className="btn btn-primary" type="button"><span className="glyphicon glyphicon-plus"/></button>
               </div>
             </div>
           </div>

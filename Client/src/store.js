@@ -16,7 +16,7 @@ export default createStore(reducer, {
 	},
 	lists: {
 		selected: 0,
-		lists: [
+		listArray: [
 			{
 				name: "After Work",
 				id: 0,
