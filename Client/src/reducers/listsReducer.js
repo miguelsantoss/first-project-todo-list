@@ -23,7 +23,7 @@ export default function reducer(state={}, action) {
 			const { listId, name, priority } = action.payload;
 			
 			let { listArray } = state;
-			listArray = JSON.parse(JSON.stringify(listArray))
+			listArray = JSON.parse(JSON.stringify(listArray));
 
 
 
@@ -45,7 +45,7 @@ export default function reducer(state={}, action) {
 			const { listId, name } = action.payload;
 			
 			let { listArray } = state;
-			listArray = JSON.parse(JSON.stringify(listArray))
+			listArray = JSON.parse(JSON.stringify(listArray));
 
 			listArray.forEach((list) => {
 				if(list.id == listId) {
@@ -56,6 +56,14 @@ export default function reducer(state={}, action) {
 			});
 			state = { ...state, listArray };
 			break;
+		}
+		case "CHANGE_SELECTED": {
+			const selected = action.payload.newId;
+
+			let { listArray } = state;
+			listArray = JSON.parse(JSON.stringify(listArray));
+
+			state = { ...state, listArray, selected };
 		}
 	}
 	return state

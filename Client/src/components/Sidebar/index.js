@@ -5,10 +5,11 @@ import SidebarEntry from './SidebarEntry';
 
 export default class Sidebar extends React.Component {
   render() {
-    const { sidebarList } = this.props;
+    const { changeSelectedHandler, sidebarList, selected } = this.props;
 
     const sidebarItems = sidebarList.map((item) => {
-      return <SidebarEntry key={item.id} {...item}/>;
+      const isSelected = item.id == selected ? true : false;
+      return <SidebarEntry select={changeSelectedHandler} selected={isSelected} key={item.id} {...item}/>;
     });
 
     return (

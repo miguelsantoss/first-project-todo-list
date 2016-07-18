@@ -39,3 +39,12 @@ export function deleteTodo(listId, name) {
 		}
 	}
 }
+
+export function changeSelected(newId) {
+	return {
+		type: "CHANGE_SELECTED",
+		payload: {
+			newId,
+		}
+	}
+}

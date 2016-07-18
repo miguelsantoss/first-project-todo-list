@@ -17,18 +17,28 @@ import TodoList from '../components/TodoList';
 })
 export default class UserHomePage extends React.Component {
   createList(name) {
-    this.props.dispatch(lists.createList(name));
+    const { dispatch } = this.props;
+    dispatch(lists.createList(name));
   }
+
   deleteList(name) {
-    this.props.dispatch(lists.deleteList(name));
+    const { dispatch } = this.props;
+    dispatch(lists.deleteList(name));
   }
+
   createTodo(name) {
     const { dispatch, listSelected } = this.props;
     dispatch(lists.createTodo(listSelected, name, "LOW"));
   }
+
   deleteTodo(name) {
     const { dispatch, listSelected } = this.props;
     dispatch(lists.deleteTodo(listSelected, name));
+  }
+
+  changeSelected(id) {
+    const { dispatch } = this.props;
+    dispatch(lists.changeSelected(id));
   }
 
   render() {
@@ -36,7 +46,7 @@ export default class UserHomePage extends React.Component {
       <div>
         <NavBar/>
         <div id="wrapper">
-          <Sidebar sidebarList={this.props.sidebarList}/>
+          <Sidebar changeSelectedHandler={this.changeSelected.bind(this)} sidebarList={this.props.sidebarList} selected={this.props.listSelected}/>
           <TodoList createTodoHandler={this.createTodo.bind(this)} deleteTodoHandler={this.deleteTodo.bind(this)} todos={this.props.todos}/>
         </div>
         <AddListModal createListHandler={this.createList.bind(this)}/>
