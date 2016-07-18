@@ -14,12 +14,12 @@ require('../styles/index.scss');
 const app = document.getElementById('app');
 
 ReactDOM.render(
-	<Provider store={store}>
-		<Router history={browserHistory}>
-			<Route path="/" component={App}>
-				<IndexRoute component={LandingPage}></IndexRoute>
-				<Route path="home" component={UserHomePage}></Route>
-			</Route>
-		</Router>
-	</Provider>,
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={LandingPage}></IndexRoute>
+        <Route path="home" component={UserHomePage}></Route>
+      </Route>
+    </Router>
+  </Provider>,
 app);

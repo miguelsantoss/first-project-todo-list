@@ -1,3 +1,3 @@
 export default function reducer(state={}, action) {
-	return state;
+  return state;
 };
