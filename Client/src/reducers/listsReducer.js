@@ -29,7 +29,10 @@ export default function reducer(state={}, action) {
 
 			listArray.forEach((list) => {
 				if(list.id == listId) {
-					const id = list.todos[list.todos.length - 1].id + 1;
+					let id = 0;
+					if(list.todos.length) {
+						id = list.todos[list.todos.length - 1].id + 1;
+					}
 					list.todos = list.todos.concat({
 						name,
 						priority,

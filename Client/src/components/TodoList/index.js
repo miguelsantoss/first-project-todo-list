@@ -10,10 +10,10 @@ export default class TodoList extends React.Component {
   }
   
   render() {
-    const { todos } = this.props;
+    const { todos, deleteTodoHandler } = this.props;
 
     const listEntries = todos.map((todo) => {
-          return <TodoListEntry key={todo.id} {...todo}/>;
+          return <TodoListEntry deleteTodo={deleteTodoHandler} key={todo.id} {...todo}/>;
     });
 
     return (
