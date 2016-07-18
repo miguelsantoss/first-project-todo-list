@@ -1,5 +1,6 @@
 import React from 'react';
 
+import AddListModal from '../components/AddListModal'
 import NavBar from '../components/NavBar';
 import Sidebar from '../components/Sidebar';
 import TodoList from '../components/TodoList';
@@ -45,6 +46,7 @@ export default class UserHomePage extends React.Component {
           <Sidebar sidebarList={sidebarList}/>
           <TodoList todos={todos}/>
         </div>
+        <AddListModal/>
       </div>
     );
   }
