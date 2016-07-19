@@ -21,7 +21,7 @@ export default function reducer(state={}, action) {
     }
     case "CREATE_TODO": {
       const { listId, name, priority } = action.payload;
-      
+
       let { listArray } = state;
       listArray = JSON.parse(JSON.stringify(listArray));
 
@@ -46,7 +46,7 @@ export default function reducer(state={}, action) {
     }
     case "DELETE_TODO": {
       const { listId, name } = action.payload;
-      
+
       let { listArray } = state;
       listArray = JSON.parse(JSON.stringify(listArray));
 

@@ -26,9 +26,9 @@ export default class UserHomePage extends React.Component {
     dispatch(lists.deleteList(name));
   }
 
-  createTodo(name) {
+  createTodo(name, priority) {
     const { dispatch, listSelected } = this.props;
-    dispatch(lists.createTodo(listSelected, name, "LOW"));
+    dispatch(lists.createTodo(listSelected, name, priority));
   }
 
   deleteTodo(name) {
