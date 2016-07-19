@@ -67,6 +67,25 @@ export default function reducer(state={}, action) {
       listArray = JSON.parse(JSON.stringify(listArray));
 
       state = { ...state, listArray, selected };
+      break;
+    }
+    case "CHANGE_TODO_STATE": {
+      const { listId, id } = action.payload;
+
+      let { listArray } = state;
+      listArray = JSON.parse(JSON.stringify(listArray));
+
+      listArray.forEach((list) => {
+        if(list.id == listId) {
+          list.todos.forEach((todo) => {
+            if(todo.id == id) {
+              todo.done = !todo.done;
+            }
+          });
+        }
+      });
+      state = { ...state, listArray };
+      break;
     }
   }
   return state

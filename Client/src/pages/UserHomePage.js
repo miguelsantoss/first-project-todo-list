@@ -41,13 +41,18 @@ export default class UserHomePage extends React.Component {
     dispatch(lists.changeSelected(id));
   }
 
+  changeTodoState(id) {
+    const { dispatch, listSelected } = this.props;
+    dispatch(lists.changeTodoState(listSelected, id));
+  }
+
   render() {
     return (
       <div>
         <NavBar/>
         <div id="wrapper">
           <Sidebar changeSelectedHandler={this.changeSelected.bind(this)} sidebarList={this.props.sidebarList} selected={this.props.listSelected}/>
-          <TodoList createTodoHandler={this.createTodo.bind(this)} deleteTodoHandler={this.deleteTodo.bind(this)} todos={this.props.todos}/>
+          <TodoList changeTodoState={this.changeTodoState.bind(this)} createTodoHandler={this.createTodo.bind(this)} deleteTodoHandler={this.deleteTodo.bind(this)} todos={this.props.todos}/>
         </div>
         <AddListModal createListHandler={this.createList.bind(this)}/>
       </div>

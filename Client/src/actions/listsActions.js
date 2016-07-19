@@ -48,3 +48,13 @@ export function changeSelected(newId) {
     }
   }
 }
+
+export function changeTodoState(listId, id) {
+  return {
+    type: "CHANGE_TODO_STATE",
+    payload: {
+      listId,
+      id,
+    }
+  }
+}
