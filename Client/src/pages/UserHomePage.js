@@ -51,10 +51,9 @@ export default class UserHomePage extends React.Component {
       <div>
         <NavBar/>
         <div id="wrapper">
-          <Sidebar deleteListHandler={this.deleteList.bind(this)} changeSelectedHandler={this.changeSelected.bind(this)} sidebarList={this.props.sidebarList} selected={this.props.listSelected}/>
+          <Sidebar createListHandler={this.createList.bind(this)} deleteListHandler={this.deleteList.bind(this)} changeSelectedHandler={this.changeSelected.bind(this)} sidebarList={this.props.sidebarList} selected={this.props.listSelected}/>
           <TodoList changeTodoState={this.changeTodoState.bind(this)} createTodoHandler={this.createTodo.bind(this)} deleteTodoHandler={this.deleteTodo.bind(this)} todos={this.props.todos}/>
         </div>
-        <AddListModal createListHandler={this.createList.bind(this)}/>
       </div>
     );
   }
