@@ -8,7 +8,14 @@ export default class addListModal extends React.Component {
       input.value = "";
     }
   }
-  
+
+  handleKeyDown(event) {
+    if(event.keyCode == 13) {
+      const button = document.getElementById("list-creation-button");
+      button.click();
+    }
+  }
+
   render() {
     return (
       <div className="modal fade" id="addListModal" tabIndex="-1" role="dialog" aria-labelledby="addListModalLabel">
@@ -21,11 +28,11 @@ export default class addListModal extends React.Component {
             <div className="modal-body">
               <div class="form-group">
                 <label for="listName">List name:</label>
-                <input defaultValue="" type="text" class="form-control" id="listName"/>
+                <input onKeyDown={this.handleKeyDown.bind(this)} placeholder="Enter list name" defaultValue="" type="text" class="form-control" id="listName"/>
               </div>
             </div>
             <div className="modal-footer">
-              <button type="button" onClick={this.handleListCreation.bind(this)} className="btn btn-primary" data-dismiss="modal">Add</button>
+              <button id="list-creation-button" type="button" onClick={this.handleListCreation.bind(this)} className="btn btn-primary" data-dismiss="modal">Add</button>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 
 import TodoListEntry from './TodoListEntry';
 
@@ -8,11 +9,23 @@ export default class TodoList extends React.Component {
     this.state = { filter: "No Filter", priority: "LOW" };
   }
 
+  componentDidMount() {
+    const input = document.getElementById("search-creation-box");
+    input.focus();
+  }
+
   handleTodoCreation() {
     const input = document.getElementById("search-creation-box");
     if(input.value != ""){
       this.props.createTodoHandler(input.value, this.state.priority);
       input.value = "";
+    }
+  }
+
+  handleKeyDown(event) {
+    if(event.keyCode == 13) {
+      const button = document.getElementById("todo-creation-button");
+      button.click();
     }
   }
 
@@ -82,13 +95,13 @@ export default class TodoList extends React.Component {
                   {filters}
                 </ul>
               </div>
-              <input type="text" id="search-creation-box" className="form-control" placeholder="Search or create an item..."/>
+              <input onKeyDown={this.handleKeyDown.bind(this)} type="text" id="search-creation-box" className="form-control" placeholder="Search or create an item..."/>
               <div className="input-group-btn">
                 <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className={classPriorityDropdown}>{priority}<span className="caret"></span></button>
                 <ul className="dropdown-menu">
                   {priorityOptions}
                 </ul>
-                <button onClick={this.handleTodoCreation.bind(this)} className="btn btn-primary" type="button"><span className="glyphicon glyphicon-plus"/></button>
+                <button id="todo-creation-button" onClick={this.handleTodoCreation.bind(this)} className="btn btn-primary" type="button"><span className="glyphicon glyphicon-plus"/></button>
               </div>
             </div>
           </div>
