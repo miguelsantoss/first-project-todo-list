@@ -19,9 +19,13 @@ export default class SidebarEntry extends React.Component {
       };
     }
 
+    const buttonStyle = {
+      marginRight: "3%"
+    }
+
     return (
       <li>
-        <button onClick={this.handleDeleteButton.bind(this)} type="button" className="btn btn-link btn-sm pull-right"><span className="glyphicon glyphicon-trash"/></button>
+        <button style={buttonStyle} onClick={this.handleDeleteButton.bind(this)} type="button" className="btn btn-link btn-sm pull-right"><span className="glyphicon glyphicon-trash"/></button>
         <a href="#" onClick={this.handleClick.bind(this)} style={style}>{name}</a>
       </li>
     );
