@@ -5,6 +5,10 @@ export default class SidebarEntry extends React.Component {
     const { select, id } = this.props;
     select(id);
   }
+  handleDeleteButton() {
+    this.props.deleteListEntry();
+  }
+
   render() {
     const { name, selected } = this.props;
 
@@ -17,6 +21,7 @@ export default class SidebarEntry extends React.Component {
 
     return (
       <li>
+        <div onClick={this.handleDeleteButton.bind(this)} className="btn btn-danger btn-xs pull-right text-center"><span className="glyphicon glyphicon-trash"/></div>
         <a href="#" onClick={this.handleClick.bind(this)} style={style}>{name}</a>
       </li>
     );

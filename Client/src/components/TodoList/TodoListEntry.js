@@ -17,6 +17,7 @@ export default class TodoListEntry extends React.Component {
       fontStyle: done ? "italic" : "normal",
       color: done ? "black" : "",
     };
+    const classApply = priority === 'LOW' ? 'label label-success' : priority === 'MEDIUM' ? 'label label-warning' : 'label label-danger';
 
     return (
       <div>
@@ -26,7 +27,7 @@ export default class TodoListEntry extends React.Component {
           <span>&nbsp;</span>
           <span style={style}>{name}</span>
           <span>&nbsp;</span>
-          <span className={ priority === 'LOW' ? 'label label-success' : priority === 'MEDIUM' ? 'label label-warning' : 'label label-danger' }>{priority}</span>
+          <span className={classApply}>{priority}</span>
         </li>
       </div>
     );

@@ -12,10 +12,10 @@ export function createList(name) {
   }
 }
 
-export function deleteList(name) {
+export function deleteList(id) {
   return {
     type: "DELETE_LIST",
-    payload: name
+    payload: id
   }
 }
 

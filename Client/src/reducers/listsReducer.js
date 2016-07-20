@@ -3,9 +3,15 @@ export default function reducer(state={}, action) {
     case "CREATE_LIST": {
       let { listArray } = state;
       listArray = JSON.parse(JSON.stringify(listArray));
+
+      let id = 0;
+      if(listArray.length) {
+        id = listArray[listArray.length - 1].id + 1;
+      }
+
       listArray = listArray.concat({
         name: action.payload,
-        id: listArray[listArray.length - 1].id + 1,
+        id: id,
         todos: [],
       });
 
@@ -14,8 +20,10 @@ export default function reducer(state={}, action) {
     }
     case "DELETE_LIST": {
       let { listArray } = state;
+
       listArray = JSON.parse(JSON.stringify(listArray));
-      listArray = listArray.filter((list) => list.name != action.payload);
+      listArray = listArray.filter((list) => list.id != action.payload);
+
       state = { ...state, listArray };
       break;
     }

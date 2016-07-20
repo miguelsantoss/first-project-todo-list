@@ -12,7 +12,7 @@ import TodoList from '../components/TodoList';
   return {
     sidebarList: store.lists.listArray,
     listSelected: store.lists.selected,
-    todos: store.lists.listArray[store.lists.selected].todos,
+    todos: store.lists.listArray.length != 0 ? store.lists.listArray[store.lists.selected].todos : [],
   };
 })
 export default class UserHomePage extends React.Component {
@@ -21,9 +21,9 @@ export default class UserHomePage extends React.Component {
     dispatch(lists.createList(name));
   }
 
-  deleteList(name) {
+  deleteList(id) {
     const { dispatch } = this.props;
-    dispatch(lists.deleteList(name));
+    dispatch(lists.deleteList(id));
   }
 
   createTodo(name, priority) {
@@ -51,7 +51,7 @@ export default class UserHomePage extends React.Component {
       <div>
         <NavBar/>
         <div id="wrapper">
-          <Sidebar changeSelectedHandler={this.changeSelected.bind(this)} sidebarList={this.props.sidebarList} selected={this.props.listSelected}/>
+          <Sidebar deleteListHandler={this.deleteList.bind(this)} changeSelectedHandler={this.changeSelected.bind(this)} sidebarList={this.props.sidebarList} selected={this.props.listSelected}/>
           <TodoList changeTodoState={this.changeTodoState.bind(this)} createTodoHandler={this.createTodo.bind(this)} deleteTodoHandler={this.deleteTodo.bind(this)} todos={this.props.todos}/>
         </div>
         <AddListModal createListHandler={this.createList.bind(this)}/>

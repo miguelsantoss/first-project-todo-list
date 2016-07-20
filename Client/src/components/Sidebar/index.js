@@ -4,12 +4,15 @@ import { Link } from 'react-router';
 import SidebarEntry from './SidebarEntry';
 
 export default class Sidebar extends React.Component {
+  deleteListEntry(id) {
+    this.props.deleteListHandler(id);
+  }
   render() {
     const { changeSelectedHandler, sidebarList, selected } = this.props;
 
     const sidebarItems = sidebarList.map((item) => {
       const isSelected = item.id == selected ? true : false;
-      return <SidebarEntry select={changeSelectedHandler} selected={isSelected} key={item.id} {...item}/>;
+      return <SidebarEntry deleteListEntry={this.deleteListEntry.bind(this, item.id)} select={changeSelectedHandler} selected={isSelected} key={item.id} {...item}/>;
     });
 
     return (
