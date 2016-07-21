@@ -13,7 +13,7 @@ use App\Item;
 
 class ItemController extends Controller
 {
-    public function post(Reqest $request)
+    public function post(Request $request)
     {
       $name = $request->name;
       $item = new Item();
