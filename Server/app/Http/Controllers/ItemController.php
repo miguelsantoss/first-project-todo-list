@@ -57,10 +57,17 @@ class ItemController extends Controller
     {
       $id = $request->id;
       $item = Item::find($id);
-      $item->done = 1;
+      if ($item->done === 0)
+      {
+        $item->done = 1;
+      }
+      else
+      {
+        $item->done = 0;
+      }
       $item->save();
 
-      return response()->json($response, 200);
+      return response()->json(200);
     }
 
 }
