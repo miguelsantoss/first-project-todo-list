@@ -61,7 +61,7 @@ class todoController extends Controller
             'priority' => $item->priority,
             'done' => $item->done
           ];
-          $temp['lists'] = $temp2;
+          $temp['items'] = $temp2;
         }
         $response[] = $temp;
       }
