@@ -16,10 +16,10 @@ class ItemController extends Controller
     public function post(Request $request)
     {
       $name = $request->name;
-      $listid = $request->listid;
+      $todoid = $request->listid;
       $item = new Item();
       $item->name = $name;
-      $item->list_id = $listid;
+      $item->todo_id= $todoid;
       $item->save();
 
       return response()->json(200);
