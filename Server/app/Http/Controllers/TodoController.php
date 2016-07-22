@@ -49,7 +49,7 @@ class todoController extends Controller
         $temp = [
           'id' => $todo->id,
           'name' => $todo->name,
-          'lists' => []
+          'items' => []
         ];
         $items = Item::where('todo_id', $todo->id)->get();
         $temp2 = [];
