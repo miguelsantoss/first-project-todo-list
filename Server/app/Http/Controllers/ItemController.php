@@ -19,7 +19,7 @@ class ItemController extends Controller
       $listid = $request->listid;
       $item = new Item();
       $item->name = $name;
-      $item->list_id = $listid
+      $item->list_id = $listid;
       $item->save();
 
       return response()->json(200);
