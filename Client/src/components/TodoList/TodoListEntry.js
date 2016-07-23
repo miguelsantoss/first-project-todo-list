@@ -17,17 +17,27 @@ export default class TodoListEntry extends React.Component {
       fontStyle: done ? 'italic' : 'normal',
       color: done ? 'black' : '',
     };
-    const classApply = priority === 'LOW' ? 'label label-success' : priority === 'MEDIUM' ? 'label label-warning' : 'label label-danger';
+    const classApply = 'btn btn-' + (priority === 'LOW' ? 'success' : priority === 'MEDIUM' ? 'warning' : 'danger');
+    const priorityOptions = [
+      'LOW',
+      'MEDIUM',
+      'HIGH'
+    ].map((option, index) => {
+      let classApply = option === 'LOW' ? 'text-success' : option === 'MEDIUM' ? 'text-warning' : 'text-danger';
+      return <li key={index}><a href="#"><span className={classApply}>{option}</span></a></li>;
+    });
 
     return (
       <div>
         <li className="list-group-item">
-          <div onClick={this.deleteTodo.bind(this)} className="btn btn-danger btn-xs pull-right text-center"><span className="glyphicon glyphicon-trash"/></div>
-          <input onChange={this.handleChecking.bind(this)} checked={done} type="checkbox" />
+          <div className="btn-group btn-group-xs pull-right">
+            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className={classApply}>{priority} <span className="caret"/></button>
+            <ul className="dropdown-menu">{priorityOptions}</ul>
+            <div onClick={this.deleteTodo.bind(this)} className="btn btn-danger text-center"><span className="glyphicon glyphicon-trash"/></div>
+          </div>
+          <input onChange={this.handleChecking.bind(this)} checked={done} type="checkbox"/>
           <span>&nbsp;</span>
           <span style={style}>{name}</span>
-          <span>&nbsp;</span>
-          <span className={classApply}>{priority}</span>
         </li>
       </div>
     );

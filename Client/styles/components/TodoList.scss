@@ -1,5 +1,7 @@
 .panel {
-  .btn:not(.btn-primary):not(.btn-default) {
-    border-radius: 0;
+  .input-group {
+    .btn:not(.btn-primary):not(.btn-default) {
+      border-radius: 0;
+    }
   }
 }

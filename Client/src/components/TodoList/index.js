@@ -78,11 +78,11 @@ export default class TodoList extends React.Component {
       'MEDIUM',
       'HIGH'
     ].map((option, index) => {
-      let classApply = option == 'LOW' ? 'text-success' : option == 'MEDIUM' ? 'text-warning' : 'text-danger';
+      let classApply = option === 'LOW' ? 'text-success' : option === 'MEDIUM' ? 'text-warning' : 'text-danger';
       return <li key={index}><a href="#" onClick={this.changePriority.bind(this, option)}><span className={classApply}>{option}</span></a></li>;
     });
 
-    const classPriorityDropdown = 'btn ' + (priority == 'LOW' ? 'btn-success' : priority == 'MEDIUM' ? 'btn-warning' : 'btn-danger') + ' dropdown-toggle';
+    const classPriorityDropdown = 'btn ' + (priority === 'LOW' ? 'btn-success' : priority === 'MEDIUM' ? 'btn-warning' : 'btn-danger') + ' dropdown-toggle';
 
     return (
       <div>
@@ -97,7 +97,7 @@ export default class TodoList extends React.Component {
               </div>
               <input onKeyDown={this.handleKeyDown.bind(this)} type="text" id="search-creation-box" className="form-control" placeholder="Search or create an item..."/>
               <div className="input-group-btn">
-                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className={classPriorityDropdown}>{priority}<span className="caret"></span></button>
+                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className={classPriorityDropdown}>{priority} <span className="caret"></span></button>
                 <ul className="dropdown-menu">
                   {priorityOptions}
                 </ul>
