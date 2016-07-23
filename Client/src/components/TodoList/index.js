@@ -6,25 +6,25 @@ import TodoListEntry from './TodoListEntry';
 export default class TodoList extends React.Component {
   constructor() {
     super();
-    this.state = { filter: "No Filter", priority: "LOW" };
+    this.state = { filter: 'No Filter', priority: 'LOW' };
   }
 
   componentDidMount() {
-    const input = document.getElementById("search-creation-box");
+    const input = document.getElementById('search-creation-box');
     input.focus();
   }
 
   handleTodoCreation() {
-    const input = document.getElementById("search-creation-box");
-    if(input.value != ""){
+    const input = document.getElementById('search-creation-box');
+    if(input.value != ''){
       this.props.createTodoHandler(input.value, this.state.priority);
-      input.value = "";
+      input.value = '';
     }
   }
 
   handleKeyDown(event) {
     if(event.keyCode == 13) {
-      const button = document.getElementById("todo-creation-button");
+      const button = document.getElementById('todo-creation-button');
       button.click();
     }
   }
@@ -45,17 +45,17 @@ export default class TodoList extends React.Component {
     const { todos, deleteTodoHandler } = this.props;
     const { filter, priority } = this.state;
     const filters = [
-      "No Filter",
-      "",
-      "Done",
-      "Not Done",
-      "",
-      "LOW",
-      "MEDIUM",
-      "HIGH"
+      'No Filter',
+      '',
+      'Done',
+      'Not Done',
+      '',
+      'LOW',
+      'MEDIUM',
+      'HIGH'
     ].map((option, index) => {
-      if(option != "") {
-        const classApply = option == this.state.filter ? "active" : "";
+      if(option != '') {
+        const classApply = option == this.state.filter ? 'active' : '';
         return (<li className={classApply} key={index}><a href="#" onClick={this.changeFilter.bind(this, option)}>{option}</a></li>);
       }
       else {
@@ -64,25 +64,25 @@ export default class TodoList extends React.Component {
     });
 
     const listEntries = todos.map((todo) => {
-      if(filter != "No Filter" && filter != "Done" && filter != "Not Done" && todo.priority != filter) {
+      if(filter != 'No Filter' && filter != 'Done' && filter != 'Not Done' && todo.priority != filter) {
         return;
       }
-      const done = filter == "Done" ? true : false;
-      if(filter == "No Filter" || todo.priority == filter || todo.done == done) {
+      const done = filter == 'Done' ? true : false;
+      if(filter == 'No Filter' || todo.priority == filter || todo.done == done) {
         return <TodoListEntry changeTodoStateHandler={this.changeTodoState.bind(this, todo.id)} deleteTodo={deleteTodoHandler} key={todo.id} {...todo}/>;
       }
     });
 
     const priorityOptions = [
-      "LOW",
-      "MEDIUM",
-      "HIGH"
+      'LOW',
+      'MEDIUM',
+      'HIGH'
     ].map((option, index) => {
-      let classApply = option == "LOW" ? "text-success" : option == "MEDIUM" ? "text-warning" : "text-danger";
+      let classApply = option == 'LOW' ? 'text-success' : option == 'MEDIUM' ? 'text-warning' : 'text-danger';
       return <li key={index}><a href="#" onClick={this.changePriority.bind(this, option)}><span className={classApply}>{option}</span></a></li>;
     });
 
-    const classPriorityDropdown = "btn " + (priority == "LOW" ? "btn-success" : priority == "MEDIUM" ? "btn-warning" : "btn-danger") + " dropdown-toggle";
+    const classPriorityDropdown = 'btn ' + (priority == 'LOW' ? 'btn-success' : priority == 'MEDIUM' ? 'btn-warning' : 'btn-danger') + ' dropdown-toggle';
 
     return (
       <div>

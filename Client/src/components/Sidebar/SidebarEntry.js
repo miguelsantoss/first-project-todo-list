@@ -20,7 +20,7 @@ export default class SidebarEntry extends React.Component {
     }
 
     const buttonStyle = {
-      marginRight: "3%"
+      marginRight: '3%'
     }
 
     return (

@@ -9,16 +9,16 @@ export default class Sidebar extends React.Component {
   }
 
   handleListCreation() {
-    const input = document.getElementById("listName");
-    if(input.value != "") {
+    const input = document.getElementById('listName');
+    if(input.value != '') {
       this.props.createListHandler(input.value);
-      input.value = "";
+      input.value = '';
     }
   }
 
   handleKeyDown(event) {
     if(event.keyCode == 13) {
-      const button = document.getElementById("list-creation-button");
+      const button = document.getElementById('list-creation-button');
       button.click();
     }
   }
@@ -32,12 +32,12 @@ export default class Sidebar extends React.Component {
     });
 
     const style = {
-      background: "#2c3e50",
-      color: "white",
-      height: "40px",
-      width: "180px",
-      border: "none",
-      outline: "none"
+      background: '#2c3e50',
+      color: 'white',
+      height: '40px',
+      width: '180px',
+      border: 'none',
+      outline: 'none'
     }
 
     return (

@@ -63,6 +63,11 @@ body {
       display: block;
       text-decoration: none;
       color: white;
+      text-overflow: ellipsis;
+      height: 40px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-radius: 0;
       &:hover {
         text-decoration: none;
         color: #15a589

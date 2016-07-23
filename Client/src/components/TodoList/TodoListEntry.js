@@ -13,9 +13,9 @@ export default class TodoListEntry extends React.Component {
   render() {
     const { name, priority, done } = this.props;
     const style = {
-      textDecoration: done ? "line-through" : "",
-      fontStyle: done ? "italic" : "normal",
-      color: done ? "black" : "",
+      textDecoration: done ? 'line-through' : '',
+      fontStyle: done ? 'italic' : 'normal',
+      color: done ? 'black' : '',
     };
     const classApply = priority === 'LOW' ? 'label label-success' : priority === 'MEDIUM' ? 'label label-warning' : 'label label-danger';
 

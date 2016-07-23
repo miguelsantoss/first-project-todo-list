@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import * as lists from '../actions/listsActions';
 
-import AddListModal from '../components/AddListModal'
 import NavBar from '../components/NavBar';
 import Sidebar from '../components/Sidebar';
 import TodoList from '../components/TodoList';

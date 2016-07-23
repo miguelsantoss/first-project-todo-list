@@ -10,61 +10,61 @@ const middleware = applyMiddleware(promise(), thunk, logger());
 
 export default createStore(reducer, {
   user: {
-    username: "test",
-    name: "test-name",
+    username: 'test',
+    name: 'test-name',
     age: 30,
   },
   lists: {
     selected: 0,
     listArray: [
       {
-        name: "After Work",
+        name: 'After Work',
         id: 0,
         todos: [
           {
-            name: "Buy oranges",
+            name: 'Buy oranges',
             id: 0,
-            priority: "LOW",
+            priority: 'LOW',
             done: true
           },
           {
-            name: "Cook dinner",
+            name: 'Watch a movie',
             id: 1,
-            priority: "HIGH",
+            priority: 'MEDIUM',
             done: false
           },
           {
-            name: "Watch a Movie",
+            name: 'Cook dinner',
             id: 2,
-            priority: "MEDIUM",
+            priority: 'HIGH',
             done: false
           }
         ]
       },
       {
-        name: "Before Work",
+        name: 'Before Work',
         id: 1,
         todos: [
           {
-            name: "Wake up",
+            name: 'Wake up',
             id: 3,
-            priority: "LOW",
+            priority: 'LOW',
             done: true
           },
           {
-            name: "Get dressed",
+            name: 'Get breakfast',
             id: 4,
-            priority: "HIGH",
+            priority: 'MEDIUM',
             done: false
           },
           {
-            name: "Get breakfast",
+            name: 'Get dressed',
             id: 5,
-            priority: "MEDIUM",
+            priority: 'HIGH',
             done: false
           }
         ]
       }
     ],
   },
-},middleware);
+}, middleware);
