@@ -36,7 +36,6 @@ export default class TodoListEntry extends React.Component {
             <div onClick={this.deleteTodo.bind(this)} className="btn btn-danger text-center"><span className="glyphicon glyphicon-trash"/></div>
           </div>
           <input onChange={this.handleChecking.bind(this)} checked={done} type="checkbox"/>
-          <span>&nbsp;</span>
           <span style={style}>{name}</span>
         </li>
       </div>
