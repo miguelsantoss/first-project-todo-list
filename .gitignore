@@ -42,8 +42,8 @@ jspm_packages
 # Created by https://www.gitignore.io/api/laravel
 
 ### Laravel ###
-Server/bootstrap/compiled.php
-Server/vendor
+bootstrap/compiled.php
+vendor
 Homestead.yaml
 Homestead.json
 .env.local.php
@@ -67,3 +67,4 @@ Session.vim
 tags
 
 bundle.js
+public/js
