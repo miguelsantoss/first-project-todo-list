@@ -2,7 +2,7 @@ import axios from 'axios';
 import { ProdURL, DevURL } from '../constants/url';
 import * as api from '../constants/apiCalls';
 
-const URL = DevURL;
+const URL = ProdURL;
 
 export function fetchLists() {
   return function(dispatch) {
@@ -29,31 +29,41 @@ export function createList(name) {
 }
 
 export function deleteList(id) {
-  return {
-    type: 'DELETE_LIST',
-    payload: id
-  }
+  return function(dispatch) {
+    axios.delete(URL + api.deleteList + id)
+      .then((response) => {
+        dispatch({type: 'DELETE_LIST_FULFILLED', payload: { id, response: response.data } })
+      })
+      .catch((err) => {
+        dispatch({type: 'DELETE_LIST_REJECTED', payload: err})
+      })
+  };
 }
 
 export function createTodo(listId, name, priority) {
-  return {
-    type: 'CREATE_TODO',
-    payload: {
-      listId,
-      name,
-      priority,
-    }
-  }
+  return function(dispatch) {
+    axios.post(URL + api.createTodo.listId   + listId +
+                       api.createTodo.name     + name +
+                       api.createTodo.priority + priority)
+      .then((response) => {
+        dispatch({type: 'CREATE_TODO_FULFILLED', payload: { response: response.data, priority } })
+      })
+      .catch((err) => {
+        dispatch({type: 'CREATE_TODO_REJECTED', payload: err})
+      })
+  };
 }
 
-export function deleteTodo(listId, name) {
-  return {
-    type: 'DELETE_TODO',
-    payload: {
-      listId,
-      name,
-    }
-  }
+export function deleteTodo(id) {
+  return function(dispatch) {
+    axios.delete(URL + api.deleteTodo + id)
+      .then((response) => {
+        dispatch({type: 'DELETE_TODO_FULFILLED', payload: { id, response: response.data } })
+      })
+      .catch((err) => {
+        dispatch({type: 'DELETE_TODO_REJECTED', payload: err})
+      })
+  };
 }
 
 export function changeSelected(newId) {
@@ -65,12 +75,50 @@ export function changeSelected(newId) {
   }
 }
 
-export function changeTodoState(listId, id) {
-  return {
-    type: 'CHANGE_TODO_STATE',
-    payload: {
-      listId,
-      id,
-    }
-  }
+export function changeTodoState(id) {
+  return function(dispatch) {
+    axios.put(URL + api.markTodo + id)
+      .then((response) => {
+        dispatch({type: 'CHANGE_TODO_STATE_FULFILLED', payload: { id, response: response.data }})
+      })
+      .catch((err) => {
+        dispatch({type: 'CHANGE_TODO_STATE_REJECTED', payload: err})
+      })
+  };
+}
+
+export function changeTodoPriority(id, priority) {
+  return function(dispatch) {
+    axios.put(URL + api.priorityTodo.id + id + api.priorityTodo.priority + priority)
+      .then((response) => {
+        dispatch({type: 'CHANGE_TODO_PRIORITY_FULFILLED', payload: { id, priority, response: response.data }})
+      })
+      .catch((err) => {
+        dispatch({type: 'CHANGE_TODO_PRIORITY_REJECTED', payload: err})
+      })
+  };
+}
+
+export function renameList(id, name) {
+  return function(dispatch) {
+    axios.put(URL + api.renameList.id + id + api.renameList.name + name)
+      .then((response) => {
+        dispatch({type: 'RENAME_LIST_FULFILLED', payload: { id, name, response: response.data }})
+      })
+      .catch((err) => {
+        dispatch({type: 'RENAME_LIST_REJECTED', payload: err})
+      })
+  };
+}
+
+export function renameTodo(id, name) {
+  return function(dispatch) {
+    axios.put(URL + api.renameTodo.id + id + api.renameTodo.name + name)
+      .then((response) => {
+        dispatch({type: 'RENAME_TODO_FULFILLED', payload: { id, name, response: response.data }})
+      })
+      .catch((err) => {
+        dispatch({type: 'RENAME_TODO_REJECTED', payload: err})
+      })
+  };
 }

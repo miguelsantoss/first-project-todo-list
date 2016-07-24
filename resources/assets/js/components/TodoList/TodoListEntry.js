@@ -2,12 +2,15 @@ import React from 'react';
 
 export default class TodoListEntry extends React.Component {
   deleteTodo() {
-    const { deleteTodo, name } = this.props;
-    deleteTodo(name);
+    const { deleteTodo, id } = this.props;
+    deleteTodo(id);
   }
 
   handleChecking() {
     this.props.changeTodoStateHandler();
+  }
+  handlePriorityChange(priority) {
+    this.props.changeTodoPriority(priority);
   }
 
   render() {
@@ -24,7 +27,7 @@ export default class TodoListEntry extends React.Component {
       'HIGH'
     ].map((option, index) => {
       let classApply = option === 'LOW' ? 'text-success' : option === 'MEDIUM' ? 'text-warning' : 'text-danger';
-      return <li key={index}><a href='#'><span className={classApply}>{option}</span></a></li>;
+      return <li key={index}><a onClick={this.handlePriorityChange.bind(this, option)} href='#'><span className={classApply}>{option}</span></a></li>;
     });
 
     return (

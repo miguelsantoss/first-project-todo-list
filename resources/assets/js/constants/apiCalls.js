@@ -1,5 +1,12 @@
-export const getLists = 'api/todo';
-export const createList = 'api/new/list?name=';
+export const getLists     = 'api/todo';
+export const createList   = 'api/new/list?name=';
+export const deleteList   = 'api/delete/list?id=';
+export const createTodo   = { listId: 'api/new/item?listid=', name: '&name=', priority: '&priority=' };
+export const deleteTodo   = 'api/delete/item?id=';
+export const markTodo     = 'api/mark?id=';
+export const priorityTodo = { id: 'api/priority?id=', priority: '&priority=' };
+export const renameList   = { id: 'api/rename/list?id=', name: '&name=' };
+export const renameTodo   = { id: 'api/rename/item?id=', name: '&name=' };
 
 /*
 

@@ -35,11 +35,12 @@ export default class UserHomePage extends React.Component {
   }
 
   createTodo(name, priority) {
-    this.props.dispatch(lists.createTodo(listSelected, name, priority));
+    const { dispatch, listSelected } = this.props;
+    dispatch(lists.createTodo(listSelected, name, priority));
   }
 
-  deleteTodo(name) {
-    this.props.dispatch(lists.deleteTodo(listSelected, name));
+  deleteTodo(id) {
+    this.props.dispatch(lists.deleteTodo(id));
   }
 
   changeSelected(id) {
@@ -47,9 +48,11 @@ export default class UserHomePage extends React.Component {
   }
 
   changeTodoState(id) {
-    this.props.dispatch(lists.changeTodoState(listSelected, id));
+    this.props.dispatch(lists.changeTodoState(id));
   }
-
+  changeTodoPriority(id, priority) {
+    this.props.dispatch(lists.changeTodoPriority(id, priority));
+  }
 
   render() {
     const { listSelected, sidebarList } = this.props;
@@ -71,7 +74,7 @@ export default class UserHomePage extends React.Component {
         <NavBar/>
         <div id='wrapper'>
           <Sidebar createListHandler={this.createList.bind(this)} deleteListHandler={this.deleteList.bind(this)} changeSelectedHandler={this.changeSelected.bind(this)} sidebarList={sidebarList} selected={listSelected}/>
-          <TodoList changeTodoState={this.changeTodoState.bind(this)} createTodoHandler={this.createTodo.bind(this)} deleteTodoHandler={this.deleteTodo.bind(this)} todos={todos}/>
+          <TodoList changeTodoPriority={this.changeTodoPriority.bind(this)} changeTodoState={this.changeTodoState.bind(this)} createTodoHandler={this.createTodo.bind(this)} deleteTodoHandler={this.deleteTodo.bind(this)} todos={todos}/>
         </div>
       </div>
     );
