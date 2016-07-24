@@ -24,18 +24,18 @@ export default class TodoListEntry extends React.Component {
       'HIGH'
     ].map((option, index) => {
       let classApply = option === 'LOW' ? 'text-success' : option === 'MEDIUM' ? 'text-warning' : 'text-danger';
-      return <li key={index}><a href="#"><span className={classApply}>{option}</span></a></li>;
+      return <li key={index}><a href='#'><span className={classApply}>{option}</span></a></li>;
     });
 
     return (
       <div>
-        <li className="list-group-item">
-          <div className="btn-group btn-group-xs pull-right">
-            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className={classApply}>{priority} <span className="caret"/></button>
-            <ul className="dropdown-menu">{priorityOptions}</ul>
-            <div onClick={this.deleteTodo.bind(this)} className="btn btn-danger text-center"><span className="glyphicon glyphicon-trash"/></div>
+        <li className='list-group-item'>
+          <div className='btn-group btn-group-xs pull-right'>
+            <button type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' className={classApply}>{priority} <span className='caret'/></button>
+            <ul className='dropdown-menu'>{priorityOptions}</ul>
+            <div onClick={this.deleteTodo.bind(this)} className='btn btn-danger text-center'><span className='glyphicon glyphicon-trash'/></div>
           </div>
-          <input onChange={this.handleChecking.bind(this)} checked={done} type="checkbox"/>
+          <input onChange={this.handleChecking.bind(this)} checked={done} type='checkbox'/>
           <span style={style}>{name}</span>
         </li>
       </div>

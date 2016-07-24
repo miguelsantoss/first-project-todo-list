@@ -25,8 +25,8 @@ export default class SidebarEntry extends React.Component {
 
     return (
       <li>
-        <button style={buttonStyle} onClick={this.handleDeleteButton.bind(this)} type="button" className="btn btn-link btn-sm pull-right"><span className="glyphicon glyphicon-trash"/></button>
-        <a href="#" onClick={this.handleClick.bind(this)} style={style}>{name}</a>
+        <button style={buttonStyle} onClick={this.handleDeleteButton.bind(this)} type='button' className='btn btn-link btn-sm pull-right'><span className='glyphicon glyphicon-trash'/></button>
+        <a href='#' onClick={this.handleClick.bind(this)} style={style}>{name}</a>
       </li>
     );
   }

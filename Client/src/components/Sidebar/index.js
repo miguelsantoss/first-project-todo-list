@@ -41,15 +41,15 @@ export default class Sidebar extends React.Component {
     }
 
     return (
-      <div id="sidebar-wrapper">
-        <ul className="sidebar-nav">
-          <li className="sidebar-brand">
-            <button onClick={this.handleListCreation.bind(this)} id="list-creation-button" type="button" className="btn btn-link pull-right"><span className="glyphicon glyphicon-plus"/></button>
-            <input onKeyDown={this.handleKeyDown.bind(this)} id="listName" style={style} placeholder="New list name" />
+      <div id='sidebar-wrapper'>
+        <ul className='sidebar-nav'>
+          <li className='sidebar-brand'>
+            <button onClick={this.handleListCreation.bind(this)} id='list-creation-button' type='button' className='btn btn-link pull-right'><span className='glyphicon glyphicon-plus'/></button>
+            <input onKeyDown={this.handleKeyDown.bind(this)} id='listName' style={style} placeholder='New list name' />
           </li>
-          <li className="divider" role="separator"></li>
+          <li className='divider' role='separator'></li>
           {sidebarItems}
-          <li className="visible-xs-block"><Link className="btn btn-success" to={'/'}>Log out</Link></li>
+          <li className='visible-xs-block'><Link className='btn btn-success' to={'/'}>Log out</Link></li>
         </ul>
       </div>
     );

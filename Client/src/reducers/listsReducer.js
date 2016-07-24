@@ -1,7 +1,30 @@
-export default function reducer(state={}, action) {
+const initialState = {
+  listArray: [],
+  selected: 0,
+  fetchingLists: true,
+  error: false
+}
+
+export default function reducer(state=initialState, action) {
   switch(action.type) {
-    case "CREATE_LIST": {
-      let { listArray } = state;
+    case 'FETCH_LISTS_PENDING': {
+      state = { ...state, fetchingLists: true, error: false };
+      break;
+    }
+    case 'FETCH_LISTS_FULFILLED': {
+      const listArray = action.payload;
+      const selected = listArray.length ? listArray[0].id : 0;
+      state = { ...state, listArray, selected, fetchingLists: false, error: false }
+      break;
+    }
+    case 'FETCH_LISTS_REJECTED': {
+      state = { ...state, error: action.payload }
+      break;
+    }
+
+
+    case 'CREATE_LIST_FULFILLED': {
+      /*let { listArray } = state;
       listArray = JSON.parse(JSON.stringify(listArray));
 
       let id = 0;
@@ -15,84 +38,11 @@ export default function reducer(state={}, action) {
         todos: [],
       });
 
-      state = { ...state, listArray };
+      state = { ...state, listArray };*/
       break;
     }
-    case "DELETE_LIST": {
-      let { listArray } = state;
+    case 'CREATE_LIST_REJECTED': {
 
-      listArray = JSON.parse(JSON.stringify(listArray));
-      listArray = listArray.filter((list) => list.id != action.payload);
-
-      state = { ...state, listArray };
-      break;
-    }
-    case "CREATE_TODO": {
-      const { listId, name, priority } = action.payload;
-
-      let { listArray } = state;
-      listArray = JSON.parse(JSON.stringify(listArray));
-
-
-
-      listArray.forEach((list) => {
-        if(list.id == listId) {
-          let id = 0;
-          if(list.todos.length) {
-            id = list.todos[list.todos.length - 1].id + 1;
-          }
-          list.todos = list.todos.concat({
-            name,
-            priority,
-            id,
-            done: false,
-          });
-        }
-      });
-      state = { ...state, listArray };
-      break;
-    }
-    case "DELETE_TODO": {
-      const { listId, name } = action.payload;
-
-      let { listArray } = state;
-      listArray = JSON.parse(JSON.stringify(listArray));
-
-      listArray.forEach((list) => {
-        if(list.id == listId) {
-          list.todos = list.todos.filter((list) => {
-            return list.name != name;
-          });
-        }
-      });
-      state = { ...state, listArray };
-      break;
-    }
-    case "CHANGE_SELECTED": {
-      const selected = action.payload.newId;
-
-      let { listArray } = state;
-      listArray = JSON.parse(JSON.stringify(listArray));
-
-      state = { ...state, listArray, selected };
-      break;
-    }
-    case "CHANGE_TODO_STATE": {
-      const { listId, id } = action.payload;
-
-      let { listArray } = state;
-      listArray = JSON.parse(JSON.stringify(listArray));
-
-      listArray.forEach((list) => {
-        if(list.id == listId) {
-          list.todos.forEach((todo) => {
-            if(todo.id == id) {
-              todo.done = !todo.done;
-            }
-          });
-        }
-      });
-      state = { ...state, listArray };
       break;
     }
   }
