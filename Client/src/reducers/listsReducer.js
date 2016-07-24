@@ -1,8 +1,6 @@
 const initialState = {
   listArray: [],
-  selected: 0,
-  fetchingLists: true,
-  error: false
+  selected: 0
 }
 
 export default function reducer(state=initialState, action) {
@@ -24,27 +22,25 @@ export default function reducer(state=initialState, action) {
 
 
     case 'CREATE_LIST_FULFILLED': {
-      /*let { listArray } = state;
+      const { name, id } = action.payload;
+      const todos = [];
+      let { listArray } = state;
       listArray = JSON.parse(JSON.stringify(listArray));
 
-      let id = 0;
-      if(listArray.length) {
-        id = listArray[listArray.length - 1].id + 1;
-      }
-
       listArray = listArray.concat({
-        name: action.payload,
-        id: id,
-        todos: [],
+        name, id, todos
       });
 
-      state = { ...state, listArray };*/
+      state = { ...state, listArray };
       break;
     }
     case 'CREATE_LIST_REJECTED': {
 
       break;
     }
+
+
+
   }
   return state
 };

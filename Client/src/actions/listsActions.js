@@ -2,7 +2,7 @@ import axios from 'axios';
 import { ProdURL, DevURL } from '../constants/url';
 import * as api from '../constants/apiCalls';
 
-const URL = ProdURL;
+const URL = DevURL;
 
 export function fetchLists() {
   return function(dispatch) {
@@ -20,7 +20,7 @@ export function createList(name) {
   return function(dispatch) {
     axios.post(URL + api.createList + name)
       .then((response) => {
-        dispatch({type: 'CREATE_LIST_FULFILLED', payload: name})
+        dispatch({type: 'CREATE_LIST_FULFILLED', payload: response.data})
       })
       .catch((err) => {
         dispatch({type: 'CREATE_LIST_REJECTED', payload: err})
