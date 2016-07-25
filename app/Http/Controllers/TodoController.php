@@ -20,7 +20,9 @@ class todoController extends Controller
       $todo->name = $name;
       $todo->save();
 
-      return response()->json($todo, 200);
+      $temp = ['id' => $todo->id];
+
+      return response()->json($temp, 200);
     }
     public function delete(Request $request)
     {

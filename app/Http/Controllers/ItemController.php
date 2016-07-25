@@ -22,7 +22,9 @@ class ItemController extends Controller
       $item->todo_id= $todoid;
       $item->save();
 
-      return response()->json($item, 200);
+      $temp = ['id' => $item->id];
+
+      return response()->json($temp, 200);
     }
     public function delete(Request $request)
     {
