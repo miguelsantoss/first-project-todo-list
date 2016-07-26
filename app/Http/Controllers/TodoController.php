@@ -57,6 +57,14 @@ class todoController extends Controller
         $temp2 = [];
         foreach ($items as &$item) 
         {
+          if ($item->done == 0)
+          {
+            $item->done = 0;
+          }
+          else
+          {
+            $item->done = 1;
+          }
           $temp2[] = [
             'id' => $item->id,
             'name' => $item->name,

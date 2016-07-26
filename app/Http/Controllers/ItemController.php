@@ -59,13 +59,13 @@ class ItemController extends Controller
     {
       $id = $request->id;
       $item = Item::find($id);
-      if ($item->done === 0)
+      if ($item->done == 0)
       {
-        $item->done = 1;
+        $item->done = "1";
       }
       else
       {
-        $item->done = 0;
+        $item->done = "0";
       }
       $item->save();
 
