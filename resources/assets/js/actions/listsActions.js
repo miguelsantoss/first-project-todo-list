@@ -20,7 +20,11 @@ export function createList(name) {
   return function(dispatch) {
     axios.post(URL + api.createList + name)
       .then((response) => {
-        dispatch({type: 'CREATE_LIST_FULFILLED', payload: response.data})
+        dispatch({type: 'CREATE_LIST_FULFILLED', payload: {
+            id: response.data.id,
+            name
+          }
+        })
       })
       .catch((err) => {
         dispatch({type: 'CREATE_LIST_REJECTED', payload: err})
@@ -46,7 +50,13 @@ export function createTodo(listId, name, priority) {
                        api.createTodo.name     + name +
                        api.createTodo.priority + priority)
       .then((response) => {
-        dispatch({type: 'CREATE_TODO_FULFILLED', payload: { response: response.data, priority } })
+        dispatch({type: 'CREATE_TODO_FULFILLED', payload: {
+            todo_id: response.data.id,
+            name,
+            priority,
+            id: listId
+          }
+        })
       })
       .catch((err) => {
         dispatch({type: 'CREATE_TODO_REJECTED', payload: err})

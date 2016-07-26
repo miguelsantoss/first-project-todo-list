@@ -65,20 +65,20 @@ export default function reducer(state=initialState, action) {
     }
 
     case 'CREATE_TODO_FULFILLED': {
-      const { name, id, todo_id } = action.payload.response;
+      const { name, id, todo_id } = action.payload;
       const { priority } = action.payload;
 
       let { listArray } = state;
       listArray = JSON.parse(JSON.stringify(listArray));
 
       listArray.forEach((list) => {
-        if(list.id == todo_id) {
+        if(list.id == id) {
           console.log(list);
           list.items = list.items.concat({
             name,
             priority,
-            id: id,
-            done: true,
+            id: todo_id,
+            done: false,
           });
         }
       });
