@@ -53,6 +53,12 @@ export default class UserHomePage extends React.Component {
   changeTodoPriority(id, priority) {
     this.props.dispatch(lists.changeTodoPriority(id, priority));
   }
+  changeListName(id, name) {
+    this.props.dispatch(lists.renameList(id, name));
+  }
+  changeTodoName(id, name) {
+    this.props.dispatch(lists.renameTodo(id, name));
+  }
 
   render() {
     const { listSelected, sidebarList } = this.props;
@@ -73,8 +79,8 @@ export default class UserHomePage extends React.Component {
       <div>
         <NavBar/>
         <div id='wrapper'>
-          <Sidebar createListHandler={this.createList.bind(this)} deleteListHandler={this.deleteList.bind(this)} changeSelectedHandler={this.changeSelected.bind(this)} sidebarList={sidebarList} selected={listSelected}/>
-          <TodoList changeTodoPriority={this.changeTodoPriority.bind(this)} changeTodoState={this.changeTodoState.bind(this)} createTodoHandler={this.createTodo.bind(this)} deleteTodoHandler={this.deleteTodo.bind(this)} todos={todos}/>
+          <Sidebar changeListName={this.changeListName.bind(this)} createListHandler={this.createList.bind(this)} deleteListHandler={this.deleteList.bind(this)} changeSelectedHandler={this.changeSelected.bind(this)} sidebarList={sidebarList} selected={listSelected}/>
+          <TodoList changeTodoName={this.changeTodoName.bind(this)} changeTodoPriority={this.changeTodoPriority.bind(this)} changeTodoState={this.changeTodoState.bind(this)} createTodoHandler={this.createTodo.bind(this)} deleteTodoHandler={this.deleteTodo.bind(this)} todos={todos}/>
         </div>
       </div>
     );

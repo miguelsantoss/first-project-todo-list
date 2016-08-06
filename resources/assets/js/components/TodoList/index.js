@@ -45,6 +45,10 @@ export default class TodoList extends React.Component {
     this.props.changeTodoPriority(id, priority);
   }
 
+  changeTodoName(id, text) {
+    this.props.changeTodoName(id, text);
+  }
+
   render() {
     const { todos, deleteTodoHandler } = this.props;
     const { filter, priority } = this.state;
@@ -73,7 +77,7 @@ export default class TodoList extends React.Component {
       }
       const done = filter == 'Done' ? true : false;
       if(filter == 'No Filter' || todo.priority == filter || todo.done == done) {
-        return <TodoListEntry changeTodoPriority={this.changeTodoPriority.bind(this, todo.id)} changeTodoStateHandler={this.changeTodoState.bind(this, todo.id)} deleteTodo={deleteTodoHandler} key={todo.id} {...todo}/>;
+        return <TodoListEntry changeTodoName={this.changeTodoName.bind(this)} changeTodoPriority={this.changeTodoPriority.bind(this, todo.id)} changeTodoStateHandler={this.changeTodoState.bind(this, todo.id)} deleteTodo={deleteTodoHandler} key={todo.id} {...todo}/>;
       }
     });
 

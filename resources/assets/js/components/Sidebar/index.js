@@ -22,13 +22,16 @@ export default class Sidebar extends React.Component {
       button.click();
     }
   }
+  changeListName(id, name) {
+    this.props.changeListName(id, name);
+  }
 
   render() {
     const { changeSelectedHandler, sidebarList, selected } = this.props;
 
     const sidebarItems = sidebarList.map((item) => {
       const isSelected = item.id == selected ? true : false;
-      return <SidebarEntry deleteListEntry={this.deleteListEntry.bind(this, item.id)} select={changeSelectedHandler} selected={isSelected} key={item.id} {...item}/>;
+      return <SidebarEntry changeListName={this.changeListName.bind(this)} deleteListEntry={this.deleteListEntry.bind(this, item.id)} select={changeSelectedHandler} selected={isSelected} key={item.id} {...item}/>;
     });
 
     const style = {
