@@ -52,7 +52,7 @@ class ItemController extends Controller
       $item->priority = $priority;
       $item->save();
 
-      return response()->json($response, 200);
+      return response()->json(200);
     }
     
     public function mark(Request $request)
