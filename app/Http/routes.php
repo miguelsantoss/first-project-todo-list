@@ -30,7 +30,7 @@ Route::put('api/rename/list', 'TodoController@put');
 
 Route::put('api/rename/item', 'ItemController@put');
 
-Route::put('api/priority/item', 'ItemController@priority');
+Route::put('api/priority', 'ItemController@priority');
 
 /* Auth Routes
 Route::post('api/register', 'AuthController@register');
