@@ -1,8 +1,6 @@
 .panel {
-  .input-group {
-    .btn:not(.btn-primary):not(.btn-default) {
-      border-radius: 0;
-    }
+  .input-group:not(.input-group-exception) .btn:not(.btn-primary):not(.btn-default) {
+    border-radius: 0;
   }
   input[type="checkbox"] {
     margin-right: 5px;

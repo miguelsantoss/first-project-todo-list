@@ -58,8 +58,16 @@ body {
   li {
     text-indent: 20px;
     line-height: 40px;
+    .input-group-20px {
+      * {
+        border-radius: 0;
+      }
+      input {
+        width: calc(100% + 20px);
+      }
+    }
     a,
-    button {
+    button:not(.btn-exception) {
       display: block;
       text-decoration: none;
       color: white;
@@ -83,6 +91,9 @@ body {
     font-size: 18px;
     line-height: 60px;
     color: white;
+    input {
+      padding: 0;
+    }
     .btn {
       margin-top: 8px;
     }

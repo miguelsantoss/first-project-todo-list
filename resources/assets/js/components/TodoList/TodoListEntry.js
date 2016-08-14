@@ -74,14 +74,13 @@ export default class TodoListEntry extends React.Component {
     const input_id  = 'todo-edit-input' + id;
     const button_id = 'todo-edit-button' + id;
     const todoItem  = this.state.editing ?
-        <div>
-          <input onKeyDown={this.handleKeyDown.bind(this)} onChange={this.handleInputChange.bind(this)} id={input_id} className='form-control' value={this.state.name}/>
-          <button onClick={this.handleChangeButton.bind(this)} type='button' id={button_id}>Done</button>
+        <div className="input-group input-group-xs input-group-exception">
+          <input onKeyDown={this.handleKeyDown.bind(this)} onChange={this.handleInputChange.bind(this)} id={input_id} type="text" className="form-control" value={this.state.name}/>
+          <span className="input-group-btn">
+            <button onClick={this.handleChangeButton.bind(this)} type="button" className="btn btn-success" id={button_id}>OK</button>
+          </span>
         </div> :
-        <div>
-          <span style={style}>{name}</span>
-          <div onClick={this.handleEditButton.bind(this)} onChange={this.handleChecking.bind(this)} className='btn btn-info text-center'><span className='glyphicon glyphicon-pencil'/></div>
-        </div>
+        <span style={style}>{name}</span>
 
     return (
       <div>
@@ -89,6 +88,7 @@ export default class TodoListEntry extends React.Component {
           <div className='btn-group btn-group-xs pull-right'>
             <button type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' className={classApply}>{priority} <span className='caret'/></button>
             <ul className='dropdown-menu'>{priorityOptions}</ul>
+            <div onClick={this.handleEditButton.bind(this)} onChange={this.handleChecking.bind(this)} className='btn btn-primary text-center'><span className='glyphicon glyphicon-pencil'/></div>
             <div onClick={this.deleteTodo.bind(this)} className='btn btn-danger text-center'><span className='glyphicon glyphicon-trash'/></div>
           </div>
           <input onChange={this.handleChecking.bind(this)} checked={done} type='checkbox'/>

@@ -57,9 +57,11 @@ export default class SidebarEntry extends React.Component {
     const button_id = 'list-edit-button' + this.props.id;
 
     const listItem = this.state.editing ?
-      <div>
-        <input onKeyDown={this.handleKeyDown.bind(this)} onChange={this.handleInputChange.bind(this)} id={input_id} className='form-control' value={this.state.name}/>
-        <button onClick={this.handleChangeButton.bind(this)} type='button' id={button_id}>Done</button>
+      <div className="input-group input-group-20px">
+        <input onKeyDown={this.handleKeyDown.bind(this)} onChange={this.handleInputChange.bind(this)} id={input_id} type="text" className="form-control" value={this.state.name}/>
+        <span className="input-group-btn">
+          <button onClick={this.handleChangeButton.bind(this)} type="button" className="btn btn-success btn-exception" id={button_id}>OK</button>
+        </span>
       </div> :
       <div>
         <button style={buttonStyle} onClick={this.handleDeleteButton.bind(this)} type='button' className='btn btn-link btn-sm pull-right'><span className='glyphicon glyphicon-trash'/></button>
