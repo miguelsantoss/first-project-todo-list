@@ -16,10 +16,14 @@ class ItemController extends Controller
     public function post(Request $request)
     {
       $name = $request->name;
+      $priority = $request->priority;
       $todoid = $request->listid;
       $item = new Item();
       $item->name = $name;
       $item->todo_id= $todoid;
+      if(isset($priority)) {
+        $item->priority = $priority;
+      }
       $item->save();
 
       $temp = ['id' => $item->id];
